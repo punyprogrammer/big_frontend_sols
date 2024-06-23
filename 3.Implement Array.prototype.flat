@@ -1,0 +1,16 @@
+function flat(arr, depth = 1) {
+  // your imeplementation here
+  const result = [];
+  // iterare through the array 
+  for(let a of arr){
+    // if array and we can go deeper
+    if(Array.isArray(a) && depth >0){
+      const subRes = flat(a,depth - 1);
+      result.push(...subRes);
+    }
+    else {
+      result.push(a);
+    }
+  }
+  return result;
+}
